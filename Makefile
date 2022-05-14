@@ -61,4 +61,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: push_swap all libft clean fclean re
+.PHONY: all libft clean fclean re
