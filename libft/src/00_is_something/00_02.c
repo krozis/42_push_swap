@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 20:15:21 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/16 20:24:29 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/16 20:45:48 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ t_bool	ft_isnumber(char *nb)
 		i++;
 	while (nb[++i])
 		if (!(ft_isdigit(nb[i])))
-			return (false);
-	return (true);
+			return (FALSE);
+	return (TRUE);
 }
