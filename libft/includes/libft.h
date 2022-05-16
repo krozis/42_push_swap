@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:45:08 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/09 18:20:08 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/16 20:24:49 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_bool			ft_isbinary(char *str);
 t_bool			ft_isdigit(int c);
 t_bool			ft_ishexa(char *nbr);
 t_bool			ft_islower(int c);
+t_bool			ft_isnumber(char *nb);
 t_bool			ft_isoctal(char *str);
 t_bool			ft_isprint(int c);
 t_bool			ft_isspace(int c);
@@ -114,6 +115,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
+int				ft_put_errmsg(char *err_msg);
 
 /*
 05_strings
