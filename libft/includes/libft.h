@@ -95,6 +95,7 @@ size_t			ft_strlen(const char *s);
 02_numbers
 */
 int				ft_atoi(const char *str);
+long			ft_atol(const char *str);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
 int				ft_power(int power, int nbr);

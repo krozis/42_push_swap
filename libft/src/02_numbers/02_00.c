@@ -36,6 +36,30 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
+long	ft_atol(const char *str)
+{
+	long	res;
+	int		sign;
+
+	res = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	while (*str && (*str < ':' && *str > '/'))
+	{
+		res = res * 10 + (*str - 48);
+		str++;
+	}
+	return (res * sign);
+}
+
 int	ft_max(int a, int b)
 {
 	if (a < b)
