@@ -58,5 +58,7 @@ int	ps_fill_tab_a(t_ps *ps, int ac, char **av)
 	}
 	if (ft_hasdouble(ps->tab_a, ps->len))
 		return (ps_clean_tab(ps));
+	if (ft_issorted(ps->tab_a, ps->len, TRUE))
+		ft_printf("SORTED\n");
 	return (EXIT_SUCCESS);
 }
