@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: krozis <krozis@student.42.fr>              +#+  +:+       +#+         #
+#    By: stelie <stelie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 20:20:34 by krozis            #+#    #+#              #
-#    Updated: 2022/05/11 11:00:46 by krozis           ###   ########.fr        #
+#    Updated: 2022/05/17 18:51:50 by stelie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SUB_DIRS	=	$(O_DIR)/00_is_something\
 SRCS		=	00_is_something/00_00.c\
 				00_is_something/00_01.c\
 				00_is_something/00_02.c\
+				00_is_something/00_03.c\
 				01_get_len/01_00.c\
 				02_numbers/02_00.c\
 				03_bases/03_01.c\

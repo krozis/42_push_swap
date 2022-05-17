@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:45:08 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/17 18:01:49 by stelie           ###   ########.fr       */
+/*   Updated: 2022/05/17 18:50:59 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_bool			ft_isoctal(char *str);
 t_bool			ft_isprint(int c);
 t_bool			ft_isspace(int c);
 t_bool			ft_isupper(int c);
+t_bool			ft_issorted(int tab[], int len, t_bool increasing);
 
 /*
 01_get_len
