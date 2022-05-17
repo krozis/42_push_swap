@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ps_debug.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/17 16:57:05 by stelie           ###   ########.fr       */
+/*   Created: 2022/05/17 16:55:48 by stelie            #+#    #+#             */
+/*   Updated: 2022/05/17 16:56:00 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-
-# define PS_ERR_MSG "Error\n"
-
-typedef struct s_ps
+void	ps_display_tab(t_ps *ps)
 {
-	int	*tab_a;
-	int	*tab_b;
-	int	len;
-}				t_ps;
+	int	i;
 
-/*
-	FUNCTIONS: debug
-*/
-void	ps_display_tab(t_ps *ps);
-
-/*
-	FUNCTIONS: init
-*/
-int		ps_clean_tab(t_ps *ps);
-int		ps_fill_tab_a(t_ps *ps, int ac, char **av);
-int		ps_wrong_elem(char *elem);
-
-#endif
+	i = 0;
+	while (i < ps->len)
+	{
+		ft_printf("[%i]\t\t[%i]\n", ps->tab_a[i], ps->tab_b[i]);
+		i++;
+	}
+	ft_printf("[tab A]\t\t[tab B]\n");
+}

@@ -26,6 +26,8 @@ LFT			=	$(LFT_DIR)libft.a
 
 #Source files
 SRC_FILES	=	push_swap.c\
+				ps_debug.c\
+				ps_init.c\
 
 OBJ_FILES	=	$(SRC_FILES:.c=.o)
 
