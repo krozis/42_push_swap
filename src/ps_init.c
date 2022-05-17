@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ps_init.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 16:54:17 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/17 16:54:22 by stelie           ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ps_init.c										  :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: stelie <stelie@student.42.fr>			  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/05/17 16:54:17 by stelie			#+#	#+#			 */
+/*   Updated: 2022/05/17 17:49:47 by stelie		   ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -56,5 +56,7 @@ int	ps_fill_tab_a(t_ps *ps, int ac, char **av)
 		ps->tab_a[i - 1] = ft_atoi(av[i]);
 		i++;
 	}
+	if (ft_hasdouble(ps->tab_a, ps->len))
+		return (ps_clean_tab(ps));
 	return (EXIT_SUCCESS);
 }
