@@ -27,6 +27,16 @@ CFLAGS		=	-Wall -Werror -Wextra
 H_DIR		=	includes
 S_DIR		=	src
 O_DIR		=	obj
+SUB_DIRS	=	$(O_DIR)/00_is_something\
+				$(O_DIR)/01_get_len\
+				$(O_DIR)/02_numbers\
+				$(O_DIR)/03_bases\
+				$(O_DIR)/04_put_something\
+				$(O_DIR)/05_strings\
+				$(O_DIR)/06_memory\
+				$(O_DIR)/07_chained_lists\
+				$(O_DIR)/08_ft_printf\
+				$(O_DIR)/09_gnl\
 
 #Source files
 SRCS		=	00_is_something/00_00.c\
@@ -34,8 +44,6 @@ SRCS		=	00_is_something/00_00.c\
 				00_is_something/00_02.c\
 				01_get_len/01_00.c\
 				02_numbers/02_00.c\
-				02_numbers/02_01.c\
-				03_bases/03_00.c\
 				03_bases/03_01.c\
 				04_put_something/04_00.c\
 				05_strings/05_00.c\
@@ -61,18 +69,23 @@ OBJS		=	$(SRCS:%.c=$(O_DIR)/%.o)
 $(O_DIR)/%.o:	$(S_DIR)/%.c
 		$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
-$(NAME):	$(OBJS)
+$(NAME):	dirmake $(OBJS)
 			$(AR) $(NAME) $(OBJS)
 			ranlib $(NAME)
+
+dirmake:
+			$(DMK) $(O_DIR)
+			$(DMK) $(SUB_DIRS)
+
 
 all:	$(NAME)
 		
 clean:
-		$(RM) $(OBJS) $(OBJBONUS)
+		$(RM) $(O_DIR)
 
 fclean:	clean
 		$(RM) $(NAME)
 
 re:	fclean all
 
-.PHONY: bonus all clean fclean re
+.PHONY: bonus dirmake all clean fclean re
