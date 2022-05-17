@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:45:08 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/16 20:24:49 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/17 18:01:49 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_fid
 /*
 00_is_something
 */
+t_bool			ft_hasdouble(int tab[], int len);
 t_bool			ft_incharset(char c, const char *charset);
 t_bool			ft_isalnum(int c);
 t_bool			ft_isalpha(int c);
