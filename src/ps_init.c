@@ -14,9 +14,9 @@
 
 int	ps_clean_tab(t_ps *ps)
 {
-	if (ps->tab_a == NULL)
+	if (ps->tab_a != NULL)
 		free(ps->tab_a);
-	if (ps->tab_b == NULL)
+	if (ps->tab_b != NULL)
 		free(ps->tab_b);
 	return (EXIT_FAILURE);
 }
@@ -43,6 +43,8 @@ int	ps_fill_tab_a(t_ps *ps, int ac, char **av)
 
 	i = 1;
 	ps->len = ac - 1;
+	ps->in_a = ps->len;
+	ps->in_b = 0;
 	ps->tab_a = malloc(sizeof(int) * (ps->len));
 	ps->tab_b = malloc(sizeof(int) * (ps->len));
 	if (ps->tab_a == NULL || ps->tab_b == NULL)

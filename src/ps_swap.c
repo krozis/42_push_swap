@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/20 13:13:53 by krozis           ###   ########.fr       */
+/*   Created: 2022/05/20 12:02:41 by krozis            #+#    #+#             */
+/*   Updated: 2022/05/20 13:15:41 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ps_sort_3(t_ps *ps)
+void	ps_swap_a(t_ps *ps)
 {
-	(void)ps;
-	return (EXIT_SUCCESS);
+	int	tmp;
+
+	if (ps->in_a < 2)
+		return ;
+	tmp = ps->tab_a[0];
+	ps->tab_a[0] = ps->tab_a[1];
+	ps->tab_a[1] = tmp;
+	ft_printf("sa\n");
 }
 
-int	main(int ac, char **av)
+void	ps_swap_b(t_ps *ps)
 {
-	t_ps	ps;
+	int	tmp;
 
-	if (ac < 2)
-		return (EXIT_SUCCESS);
-	if (ps_fill_tab_a(&ps, ac, av) == EXIT_FAILURE)
-		return (ft_put_errmsg(PS_ERR_MSG));
-	if (ac < 4)
-		return(ps_sort_3(&ps));
-/*
-	if (ac < 6)
-		return (ps_sort_5(&ps));
-*/
-	ps_display_rel_tab(&ps);
-	ps_clean_tab(&ps);
-	return (EXIT_SUCCESS);
+	if (ps->in_b < 2)
+		return ;
+	tmp = ps->tab_b[0];
+	ps->tab_b[0] = ps->tab_b[1];
+	ps->tab_b[1] = tmp;
+	ft_printf("sb\n");
 }
