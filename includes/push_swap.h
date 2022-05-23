@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/23 15:27:06 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 17:07:27 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ void	ps_display_all_tabs(t_ps *ps);
 void	ps_display_rel_tab(t_ps *ps);
 
 /*
-	FUNCTIONS: init
+	FUNCTIONS: main
 */
 int		ps_clean_tab(t_ps *ps, t_bool success);
 int		ps_fill_tab_a(t_ps *ps, int ac, char **av);
+void	ps_sort_3(t_ps *ps);
+void	ps_sort_5(t_ps *ps);
 
 /*
 	FUNCTIONS: moves

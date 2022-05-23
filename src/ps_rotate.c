@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:58:00 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/20 13:18:01 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 16:05:53 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	ps_rotate_a(t_ps *ps)
 		return ;
 	i = 0;
 	while (++i < ps->in_a)
+	{
+		ps_mini_swap(&(ps->idx_a[i]), &(ps->idx_a[i - 1]));
 		ps_mini_swap(&(ps->tab_a[i]), &(ps->tab_a[i - 1]));
+	}
 	ft_printf("ra\n");
 }
 
@@ -34,7 +37,10 @@ void	ps_rotate_b(t_ps *ps)
 		return ;
 	i = 0;
 	while (++i < ps->in_b)
+	{
+		ps_mini_swap(&(ps->idx_b[i]), &(ps->idx_b[i - 1]));
 		ps_mini_swap(&(ps->tab_b[i]), &(ps->tab_b[i - 1]));
+	}
 	ft_printf("rb\n");
 }
 
@@ -47,7 +53,10 @@ void	ps_rrotate_a(t_ps *ps)
 		return ;
 	i = ps->in_a - 1;
 	while (--i >= 0)
+	{
+		ps_mini_swap(&(ps->idx_a[i]), &(ps->idx_a[i + 1]));
 		ps_mini_swap(&(ps->tab_a[i]), &(ps->tab_a[i + 1]));
+	}
 	ft_printf("rra\n");
 }
 
@@ -60,6 +69,9 @@ void	ps_rrotate_b(t_ps *ps)
 		return ;
 	i = ps->in_b - 1;
 	while (--i >= 0)
+	{
+		ps_mini_swap(&(ps->idx_b[i]), &(ps->idx_b[i + 1]));
 		ps_mini_swap(&(ps->tab_b[i]), &(ps->tab_b[i + 1]));
+	}
 	ft_printf("rrb\n");
 }

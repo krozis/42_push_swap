@@ -31,6 +31,7 @@ SRC_FILES	=	push_swap.c\
 				ps_push.c\
 				ps_swap.c\
 				ps_rotate.c\
+				ps_sort_five.c\
 
 OBJ_FILES	=	$(SRC_FILES:.c=.o)
 
