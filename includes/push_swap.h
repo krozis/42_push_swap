@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/23 14:33:55 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:27:06 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include "libft.h"
 
 # define PS_ERR_MSG "Error\n"
+# define GOOD 0
 # define FAIL 1
+# define INCREASING 1
+# define DECREASING 0
 
 typedef struct s_ps
 {
