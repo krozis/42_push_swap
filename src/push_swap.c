@@ -6,11 +6,24 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/20 14:34:07 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:13:59 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ps_clean_tab(t_ps *ps, t_bool fail)
+{
+	if (ps->tab_a != NULL)
+		free(ps->tab_a);
+	if (ps->tab_b != NULL)
+		free(ps->tab_b);
+	if (ps->idx_a != NULL)
+		free(ps->idx_a);
+	if (ps->idx_b != NULL)
+		free(ps->idx_b);
+	return (fail);
+}
 
 int	ps_sort_3(t_ps *ps)
 {
@@ -46,7 +59,7 @@ int	main(int ac, char **av)
 		return (ps_clean_tab(&ps, TRUE));
 	if (ps.len < 4)
 		return (ps_sort_3(&ps));
-	ps_display_rel_tab(&ps);
-	ps_clean_tab(&ps, TRUE);
+	ps_display_all_tabs(&ps);
+	ps_clean_tab(&ps, 0);
 	return (EXIT_SUCCESS);
 }

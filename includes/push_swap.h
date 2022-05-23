@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/20 14:09:51 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 14:33:55 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 # include "libft.h"
 
 # define PS_ERR_MSG "Error\n"
+# define FAIL 1
 
 typedef struct s_ps
 {
 	int	*tab_a;
+	int	*idx_a;
 	int	*tab_b;
+	int	*idx_b;
 	int	len;
 	int	in_a;
 	int	in_b;
@@ -29,7 +32,7 @@ typedef struct s_ps
 /*
 	FUNCTIONS: debug
 */
-void	ps_display_tab(t_ps *ps);
+void	ps_display_all_tabs(t_ps *ps);
 void	ps_display_rel_tab(t_ps *ps);
 
 /*
@@ -37,7 +40,6 @@ void	ps_display_rel_tab(t_ps *ps);
 */
 int		ps_clean_tab(t_ps *ps, t_bool success);
 int		ps_fill_tab_a(t_ps *ps, int ac, char **av);
-int		ps_wrong_elem(char *elem);
 
 /*
 	FUNCTIONS: moves
