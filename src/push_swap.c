@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/23 18:05:27 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:38:45 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	ps_sort_3(t_ps *ps)
 		return ;
 	if (ps->len < 3)
 		ps_swap_a(ps);
-	else if (ps->tab_a[0] > ps->tab_a[1] && ps->tab_a[1] < ps->tab_a[2]
-		&& ps->tab_a[0] > ps->tab_a[2])
+	else if (ps->idx_a[0] > ps->idx_a[1] && ps->idx_a[0] > ps->idx_a[2]
+		&& ps->idx_a[1] < ps->idx_a[2])
 		ps_rotate_a(ps);
 	else if (ps->tab_a[0] < ps->tab_a[1] && ps->tab_a[0] > ps->tab_a[2]
-		&& ps->tab_a[0] > ps->tab_a[2])
+		&& ps->tab_a[1] > ps->tab_a[2])
 		ps_rrotate_a(ps);
 	else
 	{
-		if (ps->tab_a[0] < ps->tab_a[1] && ps->tab_a[1] > ps->tab_a[2])
-			ps_rrotate_a(ps);
-		else if (ps->tab_a[0] > ps->tab_a[1] && ps->tab_a[1] > ps->tab_a[2])
+		if (ps->tab_a[0] > ps->tab_a[1] && ps->tab_a[0] > ps->tab_a[2])
 			ps_rotate_a(ps);
+		else if (ps->tab_a[0] < ps->tab_a[1] && ps->tab_a[0] < ps->tab_a[2])
+			ps_rrotate_a(ps);
 		ps_swap_a(ps);
 	}
 }
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 		ps_sort_3(&ps);
 	else if (ps.len < 6)
 		ps_sort_5(&ps);
-	ps_display_all_tabs(&ps);
-	ps_clean_tab(&ps, 0);
+//	ps_display_all_tabs(&ps);
+	ps_clean_tab(&ps, GOOD);
 	return (EXIT_SUCCESS);
 }
