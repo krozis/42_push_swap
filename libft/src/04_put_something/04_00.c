@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:15:03 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/16 19:22:25 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/23 19:08:27 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void	ft_putnbr_fd(int n, int fd)
 
 int	ft_put_errmsg(char *err_msg)
 {
-	ft_putstr_fd(err_msg, 1);
+	ft_putstr_fd(err_msg, 2);
 	return (EXIT_FAILURE);
 }
