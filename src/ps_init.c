@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:24:25 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/23 15:14:13 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/24 19:45:12 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,8 @@ int	ps_fill_tab_a(t_ps *ps, int ac, char **av)
 	ps->len = ac - 1;
 	ps->in_a = ps->len;
 	ps->in_b = 0;
-	ps->tab_a = malloc(sizeof(int) * (ps->len));
-	ps->tab_b = malloc(sizeof(int) * (ps->len));
-	ps->idx_a = malloc(sizeof(int) * (ps->len));
-	ps->idx_b = malloc(sizeof(int) * (ps->len));
-	if (ps->tab_a == NULL || ps->tab_b == NULL || ps->idx_a == NULL
-		|| ps->idx_b == NULL)
-		return (ps_clean_tab(ps, FAIL));
+	if (ps_malloc(ps) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	while (i < ac)
 	{
 		if (ps_wrong_elem(av[i]) == EXIT_FAILURE)

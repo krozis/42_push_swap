@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:55:48 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/23 15:05:31 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:52:08 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,33 @@ void	ps_display_rel_tab(t_ps *ps)
 		i++;
 	}
 	ft_printf("[tab A]\t\t[tab B]\n");
+}
+
+void	ps_display_chunks(t_ps *ps)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ps->chunk)
+	{
+		ft_printf("CHUNK %i (limit = %i)\n", i + 1, ps->lmt[i]);
+		j = 0;
+		while (j < ps->len)
+		{
+			if (i == 0)
+			{
+				if (ps->idx_a[j] < ps->lmt[i])
+					ft_printf("%i at index %i\n", ps->tab_a[j], ps->idx_a[j]);
+			}
+			else if (ps->idx_a[j] < ps->lmt[i]
+				&& ps->idx_a[j] >= ps->lmt[i - 1])
+				ft_printf("%i at index %i\n", ps->tab_a[j], ps->idx_a[j]);
+			if (i == 5 && j == ps->len - 1)
+				ft_printf("%i at index %i\n", ps->tab_a[j], ps->idx_a[j]);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
 }

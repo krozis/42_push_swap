@@ -6,11 +6,29 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/24 15:38:45 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/24 19:51:42 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ps_malloc(t_ps *ps)
+{
+	ps->tab_a = malloc(sizeof(int) * (ps->len));
+	ps->tab_b = malloc(sizeof(int) * (ps->len));
+	ps->idx_a = malloc(sizeof(int) * (ps->len));
+	ps->idx_b = malloc(sizeof(int) * (ps->len));
+	if (ps->len > 5 && ps->len < 101)
+		ps->lmt = malloc(sizeof(int) * 5);
+	if (ps->len > 100)
+		ps->lmt = malloc(sizeof(int) * 11);
+	if (ps->tab_a == NULL || ps->tab_b == NULL || ps->idx_a == NULL
+		|| ps->idx_b == NULL)
+		return (ps_clean_tab(ps, FAIL));
+	if (ps->len > 5 && ps->lmt == NULL)
+		return (ps_clean_tab(ps, FAIL));
+	return (EXIT_SUCCESS);
+}
 
 int	ps_clean_tab(t_ps *ps, t_bool fail)
 {
@@ -22,6 +40,8 @@ int	ps_clean_tab(t_ps *ps, t_bool fail)
 		free(ps->idx_a);
 	if (ps->idx_b != NULL)
 		free(ps->idx_b);
+	if (ps->lmt != NULL)
+		free(ps->lmt);
 	return (fail);
 }
 
@@ -61,6 +81,12 @@ int	main(int ac, char **av)
 		ps_sort_3(&ps);
 	else if (ps.len < 6)
 		ps_sort_5(&ps);
+	else if (ps.len < 101)
+		ps_sort_hundred(&ps);
+	/*
+	else
+		ps_sort_big(&ps);
+	*/
 //	ps_display_all_tabs(&ps);
 	ps_clean_tab(&ps, GOOD);
 	return (EXIT_SUCCESS);
