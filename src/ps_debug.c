@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 16:55:48 by stelie            #+#    #+#             */
-/*   Updated: 2022/05/25 13:52:08 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/26 23:31:19 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ps_display_all_tabs(t_ps *ps)
 {
 	int	i;
 
-	ft_printf("\nDISPLAY OF ALL TABS:\n");
+	ft_printf("\nDISPLAY OF ALL TABS (size %i):\n", ps->len);
 	i = 0;
 	while (i < ps->len)
 	{

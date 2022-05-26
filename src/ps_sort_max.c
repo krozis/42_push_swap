@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:01:11 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/26 19:51:20 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/26 20:36:18 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	ps_push_chunk(t_ps *ps, int chunk)
 		ps_swap_b(ps);
 }
 
-void	ps_sort_hundred(t_ps *ps)
+void	ps_sort_max(t_ps *ps)
 {
 	int	i;
 	int	j;

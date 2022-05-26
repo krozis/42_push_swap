@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:24:25 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/24 19:45:12 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/27 00:04:05 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ static int	ps_indexer(t_ps *ps)
 	int	i;
 	int	j;
 
+	if (ft_hasdouble(ps->tab_a, ps->len))
+		return (ps_clean_tab(ps, FAIL));
+	ps->in_a = ps->len;
+	ps->in_b = 0;
 	i = 1;
 	j = ps_get_first_min(ps);
 	ps->idx_a[j] = 0;
@@ -73,7 +77,7 @@ static int	ps_indexer(t_ps *ps)
 	return (EXIT_SUCCESS);
 }
 
-static int	ps_wrong_elem(char *elem)
+int	ps_wrong_elem(char *elem)
 {
 	int	i;
 
@@ -91,26 +95,30 @@ static int	ps_wrong_elem(char *elem)
 	return (EXIT_SUCCESS);
 }
 
-int	ps_fill_tab_a(t_ps *ps, int ac, char **av)
+int	ps_fill_tab(t_ps *ps, int ac, char **av)
 {
 	int	i;
 
 	i = 1;
-	ps->len = ac - 1;
-	ps->in_a = ps->len;
-	ps->in_b = 0;
-	if (ps_malloc(ps) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	while (i < ac)
+	if (ac == 2)
 	{
-		if (ps_wrong_elem(av[i]) == EXIT_FAILURE)
-			return (ps_clean_tab(ps, FAIL));
-		ps->tab_a[i - 1] = ft_atoi(av[i]);
-		ps->idx_a[i - 1] = -1;
-		ps->idx_b[i - 1] = -1;
-		i++;
+		if (ps_parse(ps, av) == EXIT_FAILURE)
+			return (EXIT_FAILURE);
 	}
-	if (ft_hasdouble(ps->tab_a, ps->len))
-		return (ps_clean_tab(ps, FAIL));
+	else
+	{
+		ps->len = ac - 1;
+		if (ps_malloc(ps) == EXIT_FAILURE)
+			return (EXIT_FAILURE);
+		while (i < ac)
+		{
+			if (ps_wrong_elem(av[i]) == EXIT_FAILURE)
+				return (ps_clean_tab(ps, FAIL));
+			ps->tab_a[i - 1] = ft_atoi(av[i]);
+			ps->idx_a[i - 1] = -1;
+			ps->idx_b[i - 1] = -1;
+			i++;
+		}
+	}
 	return (ps_indexer(ps));
 }

@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/26 20:05:41 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/26 23:46:37 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define FAIL 1
 # define INCREASING 1
 # define DECREASING 0
+# define PS_ALLOWED "0123456789 -+"
 
 typedef struct s_ps
 {
@@ -42,14 +43,19 @@ void	ps_display_rel_tab(t_ps *ps);
 void	ps_display_chunks(t_ps *ps);
 
 /*
-	FUNCTIONS: main
+	FUNCTIONS: init
 */
+int		ps_parse(t_ps *ps, char **av);
 int		ps_malloc(t_ps *ps);
 int		ps_clean_tab(t_ps *ps, t_bool success);
-int		ps_fill_tab_a(t_ps *ps, int ac, char **av);
+int		ps_fill_tab(t_ps *ps, int ac, char **av);
+int		ps_wrong_elem(char *elem);
+
+/*
+	FUNCTIONS: sort
+*/
 void	ps_sort_3(t_ps *ps);
 void	ps_sort_5(t_ps *ps);
-void	ps_sort_hundred(t_ps *ps);
 void	ps_sort_max(t_ps *ps);
 
 /*

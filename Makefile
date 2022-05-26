@@ -28,6 +28,7 @@ LFT			=	$(LFT_DIR)libft.a
 SRC_FILES	=	push_swap.c\
 				ps_debug.c\
 				ps_init.c\
+				ps_parse.c\
 				ps_tools.c\
 				ps_swap_and_push.c\
 				ps_rotate.c\

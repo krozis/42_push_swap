@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/26 20:06:50 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/27 00:00:38 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ps_malloc(t_ps *ps)
 	if (ps->len > 5 && ps->len < 101)
 		ps->lmt = malloc(sizeof(int) * 5);
 	if (ps->len > 100)
-		ps->lmt = malloc(sizeof(int) * 11);
+		ps->lmt = malloc(sizeof(int) * 14);
 	if (ps->tab_a == NULL || ps->tab_b == NULL
 		|| ps->idx_a == NULL || ps->idx_b == NULL)
 		return (ps_clean_tab(ps, FAIL));
@@ -48,7 +48,7 @@ int	ps_clean_tab(t_ps *ps, t_bool fail)
 
 void	ps_sort_3(t_ps *ps)
 {
-	if (ft_issorted(ps->idx_a, ps->in_a, INCREASING))
+	if (ps->idx_a[0] < ps->idx_a[1] && ps->idx_a[1] < ps->idx_a[2])
 		return ;
 	if (ps->len < 3)
 		ps_swap_a(ps);
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (EXIT_SUCCESS);
-	if (ps_fill_tab_a(&ps, ac, av) == EXIT_FAILURE)
+	if (ps_fill_tab(&ps, ac, av) == EXIT_FAILURE)
 		return (ft_put_errmsg(PS_ERR_MSG));
 	if (ft_issorted(ps.idx_a, ps.len, INCREASING))
 		return (ps_clean_tab(&ps, GOOD));
@@ -89,7 +89,7 @@ int	main(int ac, char **av)
 		else
 			ps.chunk = 14;
 		ps_chunker(&ps);
-		ps_sort_hundred(&ps);
+		ps_sort_max(&ps);
 	}
 	ps_clean_tab(&ps, GOOD);
 	return (EXIT_SUCCESS);
