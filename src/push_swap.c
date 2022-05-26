@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:30:47 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/24 19:51:42 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/26 20:06:50 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ps_malloc(t_ps *ps)
 		ps->lmt = malloc(sizeof(int) * 5);
 	if (ps->len > 100)
 		ps->lmt = malloc(sizeof(int) * 11);
-	if (ps->tab_a == NULL || ps->tab_b == NULL || ps->idx_a == NULL
-		|| ps->idx_b == NULL)
+	if (ps->tab_a == NULL || ps->tab_b == NULL
+		|| ps->idx_a == NULL || ps->idx_b == NULL)
 		return (ps_clean_tab(ps, FAIL));
 	if (ps->len > 5 && ps->lmt == NULL)
 		return (ps_clean_tab(ps, FAIL));
@@ -40,8 +40,9 @@ int	ps_clean_tab(t_ps *ps, t_bool fail)
 		free(ps->idx_a);
 	if (ps->idx_b != NULL)
 		free(ps->idx_b);
-	if (ps->lmt != NULL)
-		free(ps->lmt);
+	if (ps->len > 5)
+		if (ps->lmt != NULL)
+			free(ps->lmt);
 	return (fail);
 }
 
@@ -81,13 +82,15 @@ int	main(int ac, char **av)
 		ps_sort_3(&ps);
 	else if (ps.len < 6)
 		ps_sort_5(&ps);
-	else if (ps.len < 101)
-		ps_sort_hundred(&ps);
-	/*
 	else
-		ps_sort_big(&ps);
-	*/
-//	ps_display_all_tabs(&ps);
+	{
+		if (ps.len < 101)
+			ps.chunk = 5;
+		else
+			ps.chunk = 14;
+		ps_chunker(&ps);
+		ps_sort_hundred(&ps);
+	}
 	ps_clean_tab(&ps, GOOD);
 	return (EXIT_SUCCESS);
 }

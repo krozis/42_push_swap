@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:31:48 by krozis            #+#    #+#             */
-/*   Updated: 2022/05/24 20:07:47 by krozis           ###   ########.fr       */
+/*   Updated: 2022/05/26 20:05:41 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,16 @@ int		ps_fill_tab_a(t_ps *ps, int ac, char **av);
 void	ps_sort_3(t_ps *ps);
 void	ps_sort_5(t_ps *ps);
 void	ps_sort_hundred(t_ps *ps);
+void	ps_sort_max(t_ps *ps);
 
 /*
 	FUNCTIONS: tools
 */
+void	ps_resort_chunk(t_ps *ps, int chunk);
+void	ps_push_back(t_ps *ps);
+t_bool	ps_is_in_chunk(t_ps *ps, int nb, int chunk);
 void	ps_chunker(t_ps *ps);
+int		ps_get_closest(t_ps	*ps, int chunk);
 
 /*
 	FUNCTIONS: moves

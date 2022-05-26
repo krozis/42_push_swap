@@ -29,11 +29,10 @@ SRC_FILES	=	push_swap.c\
 				ps_debug.c\
 				ps_init.c\
 				ps_tools.c\
-				ps_push.c\
-				ps_swap.c\
+				ps_swap_and_push.c\
 				ps_rotate.c\
 				ps_sort_five.c\
-				ps_sort_hundred.c\
+				ps_sort_max.c\
 
 OBJ_FILES	=	$(SRC_FILES:.c=.o)
 
